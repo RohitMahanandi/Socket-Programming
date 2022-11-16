@@ -29,7 +29,7 @@ while True:
     else:
         c.send("Nice manners Bro :(".encode())
 
-    symbol_list = ["+", "-", "*", "/"] 
+    symbol_list = ["+", "-", "*", "/", "**"] 
     integer1 = c.recv(1024).decode()
     integer2 = c.recv(1024).decode()
     symbol = c.recv(1024).decode()
@@ -44,6 +44,8 @@ while True:
             result = integer1 - integer2
         elif symbol == "*":
             result = integer1 * integer2
+        elif symbol == "**":
+            result = integer1**integer2
         else:
             result = integer1 / integer2
         print(f"Result for client {count} is {result}")
